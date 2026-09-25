@@ -1,0 +1,43 @@
+{
+  "name": "react-native-device-posture",
+  "version": "0.1.0",
+  "description": "Shared fold and hinge posture for iOS and Android, available through one provider.",
+  "main": "src/index.js",
+  "react-native": "src/index.js",
+  "files": [
+    "src",
+    "ios",
+    "android",
+    "react-native-device-posture.podspec",
+    "react-native.config.js",
+    "README.md"
+  ],
+  "scripts": {
+    "test": "node --test __tests__/normalizeFoldState.test.js"
+  },
+  "keywords": [
+    "react-native",
+    "fold",
+    "hinge",
+    "device-posture",
+    "iphone-duo",
+    "foldable"
+  ],
+  
+  "license": "MIT",
+  "peerDependencies": {
+    "react": ">=18",
+    "react-native": ">=0.76"
+  },
+  "codegenConfig": {
+    "name": "RNDevicePostureSpec",
+    "type": "modules",
+    "jsSrcsDir": "src",
+    "android": {
+      "javaPackageName": "com.deviceposture"
+    }
+  },
+  "publishConfig": {
+  "access": "public"
+}
+}

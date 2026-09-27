@@ -1,34 +1,43 @@
 # react-native-device-posture
 
-One fold and hinge status for iOS and Android. Wrap the app once, then read the same state from any screen.
+Cross-platform fold and hinge posture support for React Native devices with a foldable display.
 
-Both platforms emit the listener `onFoldStateChange`.
+Wrap your app once with `FoldStateProvider`, then read the same posture state from any screen using `useFoldState()`.
+
+## Supported states
+
+Both platforms emit the native listener `onFoldStateChange` and normalize it into a shared state shape.
 
 | `status` | Meaning | `isFlat` |
 |---|---|---|
-| `unknown` | This device has no hinge | `false` |
-| `closed` | Folded | `false` |
-| `partiallyOpen` | Mid-fold | `false` |
-| `fullyOpen` | Unfolded flat | `true` |
+| `unknown` | No hinge is available on this device | `false` |
+| `closed` | Device is folded or closed | `false` |
+| `partiallyOpen` | Device is in a mid-fold position | `false` |
+| `fullyOpen` | Device is unfolded flat | `true` |
 
-`isFlat` is true only when the device is fully open. Use that for the wide Duo layout.
+`isFlat` is only `true` when the device is fully open, which is the state you usually want for a wide dual-screen layout.
 
-iOS reads `UIHinge` (iOS 27.1 and later). Android reads Jetpack WindowManager `FoldingFeature`. Phones without a hinge stay on `unknown`.
+iOS reads `UIHinge` on iOS 27.1 and newer. Android reads Jetpack WindowManager `FoldingFeature`. Devices without a hinge stay at `unknown`.
 
 Requires React Native 0.76 or newer with the New Architecture enabled.
 
-## Install
+## Installation
 
-From the app:
+Install from npm:
 
 ```sh
-npm install /Users/shubham/Documents/Learning/react-native-device-posture
+npm install react-native-device-posture
+```
+
+Then install the iOS pods if you are building for iOS:
+
+```sh
 cd ios && pod install
 ```
 
-Rebuild the native app after installing. A JavaScript reload is not enough.
+Rebuild the native app after installation. A JavaScript reload alone is not enough.
 
-## Use
+## Usage
 
 ```jsx
 import {
@@ -54,6 +63,13 @@ function Home() {
 }
 ```
 
-`FOLD_STATE_EVENT` is `'onFoldStateChange'` on both platforms. The provider already subscribes to it, so screens only need `useFoldState()`.
+`FOLD_STATE_EVENT` is `'onFoldStateChange'` on both platforms. The provider subscribes to the native event for you, so screens generally only need to call `useFoldState()`.
 
 `useFoldState()` throws if it is called outside `FoldStateProvider`.
+
+## API
+
+- `FoldStateProvider`: sets up native posture listening and exposes the current fold state to descendants.
+- `useFoldState()`: reads the current state from context.
+- `FOLD_STATE_EVENT`: native event name used by both platforms.
+- `FOLD_STATUS`: status constants such as `unknown`, `closed`, `partiallyOpen`, and `fullyOpen`.

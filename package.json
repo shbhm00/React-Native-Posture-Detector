@@ -1,6 +1,6 @@
 {
   "name": "react-native-device-posture",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Shared fold and hinge posture for iOS and Android, available through one provider.",
   "main": "src/index.js",
   "react-native": "src/index.js",

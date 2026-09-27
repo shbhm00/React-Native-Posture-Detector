@@ -1,6 +1,6 @@
 {
   "name": "react-native-device-posture",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Shared fold and hinge posture for iOS and Android, available through one provider.",
   "main": "src/index.js",
   "react-native": "src/index.js",
@@ -37,6 +37,10 @@
       "javaPackageName": "com.deviceposture"
     }
   },
+  "repository": {
+  "type": "git",
+  "url": "git+https://github.com/shbhm00/React-Native-Posture-Detector"
+},
   "publishConfig": {
   "access": "public"
 }

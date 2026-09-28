@@ -21,7 +21,13 @@
     "hinge",
     "device-posture",
     "iphone-duo",
-    "foldable"
+    "foldable",
+    "android",
+    "ios",
+    "react-native-device-posture",
+    "apple-duo",
+    "android-foldable",
+    "react-native-fold"
   ],
   
   "license": "MIT",

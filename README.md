@@ -1,6 +1,10 @@
 # react-native-device-posture
 
-Cross-platform fold and hinge posture support for React Native devices with a foldable display.
+A cross-platform React Native library for detecting foldable device posture,
+fold state, and hinge changes on iOS and Android.
+
+Detect whether a foldable device is closed, partially open, or fully open,
+and build adaptive layouts for foldable and dual-screen devices.
 
 Wrap your app once with `FoldStateProvider`, then read the same posture state from any screen using `useFoldState()`.
 
